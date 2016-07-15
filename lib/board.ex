@@ -15,9 +15,7 @@ defmodule Board do
   end
 
   def place_token(board, position, token) do
-    board
-      |> List.delete_at(position)
-      |> List.insert_at(position, token)
+    List.replace_at(board, position, token)
   end
 
   def display(board) do
