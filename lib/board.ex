@@ -25,6 +25,7 @@ defmodule Board do
       |> add_horizontal_lines
       |> List.flatten
       |> transform_cells
+      |> Enum.concat(["\n"]) 
       |> Enum.join
   end
 

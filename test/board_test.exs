@@ -35,13 +35,25 @@ defmodule BoardTest do
     assert Board.place_token(board, position, token) == expected_board
   end
 
-  test "Displays empty board" do
+  test "Displays an empty board" do
     board = Board.create |> Board.display
-    assert board == "   |   |   \n-----------\n   |   |   \n-----------\n   |   |   "
+    assert board == """
+       |   |   
+    -----------
+       |   |   
+    -----------
+       |   |   
+    """
   end
 
   test "Displays a board with a token" do
     board = Board.create |> Board.place_token(0, :x) |> Board.display
-    assert board == " x |   |   \n-----------\n   |   |   \n-----------\n   |   |   "
+    assert board == """
+     x |   |   
+    -----------
+       |   |   
+    -----------
+       |   |   
+    """
   end
 end
