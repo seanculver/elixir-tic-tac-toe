@@ -17,9 +17,7 @@ defmodule BoardTest do
   end
 
   test "Can place player token on board" do
-    token = :x
-    position = 4
-    board = Board.create()
+    board = Board.create() |> Board.place_token(4, :x)
     expected_board = [
       :empty,
       :empty,
@@ -32,7 +30,24 @@ defmodule BoardTest do
       :empty
     ]
 
-    assert Board.place_token(board, position, token) == expected_board
+    assert board == expected_board
+  end
+  
+  test "Cannot override player token on board" do
+    board = Board.create() |> Board.place_token(4, :x) |> Board.place_token(4, :o)
+    expected_board = [
+      :empty,
+      :empty,
+      :empty,
+      :empty,
+      :x,
+      :empty,
+      :empty,
+      :empty,
+      :empty
+    ]
+
+    assert board == expected_board
   end
 
   test "Displays an empty board" do

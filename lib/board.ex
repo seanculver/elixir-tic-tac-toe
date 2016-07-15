@@ -6,6 +6,9 @@ defmodule Board do
   ## examples
     iex> Board.create
     [:empty, :empty, :empty, :empty, :empty, :empty, :empty, :empty, :empty]
+    
+    iex> Board.place_token([:empty, :empty], 0, :x)
+    [:x, :empty]
 
   """
   @row_length 3
@@ -15,7 +18,11 @@ defmodule Board do
   end
 
   def place_token(board, position, token) do
-    List.replace_at(board, position, token)
+    if Enum.at(board, position) == :empty do
+      List.replace_at(board, position, token)
+    else
+      board
+    end
   end
 
   def display(board) do
