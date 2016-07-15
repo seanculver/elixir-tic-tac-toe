@@ -1,5 +1,7 @@
 # TicTacToe
 
+[![Build Status](https://travis-ci.org/seanculver/elixir-tic-tac-toe.svg?branch=master)](https://travis-ci.org/seanculver/elixir-tic-tac-toe)
+
 **TODO: Add description**
 
 ## Installation
