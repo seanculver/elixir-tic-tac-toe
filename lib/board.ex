@@ -33,7 +33,7 @@ defmodule Board do
   end
 
   defp add_vertical_lines(board) do
-    Enum.map(board, fn (row) -> Enum.intersperse(row, "|") end)
+    Enum.map(board, &(Enum.intersperse(&1, "|")))
   end
 
   defp add_horizontal_lines(board) do
