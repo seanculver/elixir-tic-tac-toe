@@ -45,12 +45,11 @@ defmodule Board do
   end
 
   defp transform_cell(cell) do
-    case cell do
-      cell when cell == :empty -> "   "
-      cell when cell == :x -> " #{Atom.to_string(cell)} "
-      cell when cell == :o -> " #{Atom.to_string(cell)} "
-      _ ->
-        cell
+    cond do
+      cell == :empty -> "   "
+      cell == :x -> " #{Atom.to_string(cell)} "
+      cell == :o -> " #{Atom.to_string(cell)} "
+      true -> cell
     end
   end
 end
